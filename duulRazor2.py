@@ -24,10 +24,10 @@ img = cv2.resize(image, (dim, dim), interpolation = cv2.INTER_AREA)
 #Gray scale
 grayScale = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY )
 #Black hat filter
-kernel = cv2.getStructuringElement(1,(9,9)) 
+kernel = cv2.getStructuringElement(1,(70,70)) 
 blackhat = cv2.morphologyEx(grayScale, cv2.MORPH_BLACKHAT, kernel)
 #Gaussian filter
-bhg= cv2.GaussianBlur(blackhat,(3,3),cv2.BORDER_DEFAULT)
+bhg= cv2.GaussianBlur(blackhat,(65,65),cv2.BORDER_DEFAULT)
 #Binary thresholding (MASK)
 ret,mask = cv2.threshold(bhg,10,255,cv2.THRESH_BINARY)
 #Replace pixels of the mask
